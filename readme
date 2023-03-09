@@ -1,0 +1,41 @@
+// npm init
+// npm i --save-dev typescript @types/express @types/node
+// npx tsc --init
+// rootDir--> all ts files--> src 
+// outDir--> all transpiled files--> dist
+
+
+
+//Start creating Node Js backend in src folder
+
+
+// after that transpile the code---> npx tsc
+
+// developmement -> typeScript
+
+////////////
+// npm i --save-dev typescript @types/express @types/node
+// npx tsc --init
+
+// npx tsc && node dist/index.js
+
+// npm init
+// npm i --save-dev typescript @types/express @types/node
+// npx tsc --init
+// rootDir--> all ts files--> src 
+// outDir--> all transpiled files--> dist
+
+
+
+//Start creating Node Js backend in src folder
+
+
+// after that transpile the code---> npx tsc
+
+
+// https://www.npmjs.com/package/mongoose-auto-increment
+
+// npm i @typescript/mongooe-auto-increment
+
+// npm i mongoose-auto-increment --force
+
