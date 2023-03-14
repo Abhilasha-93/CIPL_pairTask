@@ -22,28 +22,6 @@ const createUser = function (req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const { name, age, gender, state, pincode, country } = req.body;
-            // Find the highest roll number
-            // const highestRollNo = await userModel.findOne().sort('-rollNo').exec();
-            // console.log("highestRollNo",highestRollNo)
-            // const nextRollNo = highestRollNo ? highestRollNo.rollNo + 1 : 1;
-            //     const myState:string=toUpperCase(state);
-            //     const myCountry:string=toUpperCase(country);
-            //     console.log(myState);
-            //     console.log(myCountry);
-            //    const stateCode = myState.split("", 2);
-            //    const countryCode = myCountry.split("", 2);
-            //    console.log("stateCode------>",stateCode);
-            //    console.log("countryCode===============>",countryCode);
-            //    const concatStateCountry = countryCode.concat(stateCode);
-            //    console.log("concatStateCountry--------------------------->",+concatStateCountry);
-            //    const randomNumber = Math.floor(Math.random() * 900) + 100;
-            //    console.log("randomNumber--------------------->",+randomNumber);
-            //    const randomRoll = randomNumber.toString().split("");
-            //    //const roll = randomRoll.split("")
-            //    console.log("randomRoll", +randomRoll)
-            // //    const myRollNo:string = concatStateCountry + randomNumber
-            //    const myRollNo = concatStateCountry.concat(randomRoll);
-            //    console.log("myRollNo", +myRollNo);
             const randomNumber = Math.floor(Math.random() * 900) + 100;
             const stateCode = state.slice(0, 2).toUpperCase();
             const countryCode = country.slice(0, 2).toUpperCase();

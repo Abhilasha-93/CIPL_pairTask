@@ -4,15 +4,19 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import route from './route/route.js';
 //import autoIncrement from 'mongoose-auto-increment';
+
 const app:Application = express();
+import dotenv from 'dotenv';
+dotenv.config();
 
 const Port:number = 4000;
 const hostname = '0.0.0.0';
 
 app.use(bodyParser.json());
-app.use('/', route)
-app.use(cors({origin: '*'}));
+app.use(bodyParser.urlencoded({extended:true}));
 
+app.use(cors());
+app.use('/', route)
 
 
 mongoose.connect("mongodb+srv://Seema:C5PtEdt23kmtx9ov@cluster0.gjunl.mongodb.net/CIPLTask2?retryWrites=true&w=majority")

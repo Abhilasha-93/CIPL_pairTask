@@ -9,44 +9,7 @@ function toUpperCase(str: string): string {
 
 const createUser = async function (req:Request, res:Response) {
     try {
-        res.setHeader('Access-Control-Allow-Origin','*')
-
-        const { name, age,gender,state,pincode,country } = req.body;
-
-        // Find the highest roll number
-        // const highestRollNo = await userModel.findOne().sort('-rollNo').exec();
-        // console.log("highestRollNo",highestRollNo)
-        // const nextRollNo = highestRollNo ? highestRollNo.rollNo + 1 : 1;
-
-    //     const myState:string=toUpperCase(state);
-    //     const myCountry:string=toUpperCase(country);
-
-
-    //     console.log(myState);
-    //     console.log(myCountry);
-
-        
-    //    const stateCode = myState.split("", 2);
-    //    const countryCode = myCountry.split("", 2);
-       
-    //    console.log("stateCode------>",stateCode);
-    //    console.log("countryCode===============>",countryCode);
-
-    //    const concatStateCountry = countryCode.concat(stateCode);
-    //    console.log("concatStateCountry--------------------------->",+concatStateCountry);
-
-    //    const randomNumber = Math.floor(Math.random() * 900) + 100;
-    //    console.log("randomNumber--------------------->",+randomNumber);
-    
-    //    const randomRoll = randomNumber.toString().split("");
-    //    //const roll = randomRoll.split("")
-    //    console.log("randomRoll", +randomRoll)
-       
-
-    // //    const myRollNo:string = concatStateCountry + randomNumber
-    //    const myRollNo = concatStateCountry.concat(randomRoll);
-    //    console.log("myRollNo", +myRollNo);
-
+       const { name, age,gender,state,pincode,country } = req.body;
 
        const randomNumber:number = Math.floor(Math.random() * 900) + 100; 
        
@@ -70,10 +33,10 @@ const createUser = async function (req:Request, res:Response) {
 
 const getUser = async function (req:Request, res:Response) {
     try {
-        res.setHeader('Access-Control-Allow-Origin','*')
+     
         let user = await userModel.find({isDeleted: false})
         res.json({
-            message:"User Details",data:user });
+            message:"User Details",data:user});
     }
     catch(err){
         console.error(err);
@@ -84,7 +47,7 @@ const getUser = async function (req:Request, res:Response) {
 
 const getUserById = async function(req:Request,res:Response){
     try {
-        res.setHeader('Access-Control-Allow-Origin','*')
+      
         const id = req.params.id;
         const user = await userModel.findOne({ rollNo:id, isDeleted: false });
         if (user) {
@@ -100,13 +63,11 @@ const getUserById = async function(req:Request,res:Response){
 
 const updateUser = async function(req:Request,res:Response){
     try{
-        res.setHeader('Access-Control-Allow-Origin','*')
+       
         const id = req.params.id;
         const requestBody=req.body;
         const rollNo = req.body.rollNo;
 
-        
-        
         const existUser=await userModel.findOne({rollNo:id,isDeleted:false})
         if(!existUser){
         return res.status(404).json({error:true,msg: "No user found with given Id"});
@@ -129,7 +90,7 @@ const updateUser = async function(req:Request,res:Response){
 
 const deleteUser=async function(req:Request,res:Response){
     try{ 
-        res.setHeader('Access-Control-Allow-Origin','*')
+      
             const id = req.params.id;
     
             const existUser=await userModel.findOne({rollNo:id,isDeleted:false})
@@ -140,10 +101,10 @@ const deleteUser=async function(req:Request,res:Response){
             const delUser=await userModel.findOneAndUpdate({rollNo:id,isDeleted:false},{isDeleted: true, deletedAt:new Date()},{new:true});
         
             return res.status(200).json({data: delUser,error: false,msg: "Data Deleted successfully"});
-    }catch (err) {
+        }catch (err) {
         console.error(err);
         return res.status(500).json({ message: "Internal server error" });
-      }
+        }
 }
 export {createUser,getUser,getUserById,updateUser,deleteUser}
 

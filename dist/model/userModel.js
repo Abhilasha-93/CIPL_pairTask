@@ -22,6 +22,10 @@ const userSchema = new mongoose_1.Schema({
         type: String,
         required: true
     },
+    country: {
+        type: String,
+        required: true
+    },
     pincode: {
         type: Number,
         required: true
